@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React from 'react'
+import { Navbar } from '../ui/Navbar'
 
 export const ShopLayout = ({ children, title, description, image }) => {
   return (
@@ -16,7 +16,7 @@ export const ShopLayout = ({ children, title, description, image }) => {
         }
       </Head>
 
-      <nav></nav>
+      <Navbar />
 
       <main
         style={{
