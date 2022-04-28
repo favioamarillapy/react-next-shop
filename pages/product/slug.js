@@ -2,7 +2,7 @@ import { Button, Chip, Grid, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import { ShopLayout } from '../../components/layouts'
-import { ProductSlide } from '../../components/product'
+import { ProductCounter, ProductSlide } from '../../components/product'
 import { initialData } from '../../database/products'
 
 const { title, description, price, images } = initialData.products[0]
@@ -19,7 +19,8 @@ const ProductSlug = () => {
             <Typography variant='h1' component='h1'>{title}</Typography>
             <Typography variant='subtitle1'>$ {price}</Typography>
             <Box sx={{ my: 2 }}>
-              <Typography variant='subtitle2'>{10}</Typography>
+              <Typography variant='subtitle2'>Quantity</Typography>
+              <ProductCounter />
             </Box>
             <Button color='secondary' className='circular-btn'>
               Add to cart
