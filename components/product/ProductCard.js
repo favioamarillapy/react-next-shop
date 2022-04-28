@@ -1,5 +1,7 @@
-import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from '@mui/material'
 import { useMemo, useState } from 'react'
+import NextLink from 'next/link'
+import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from '@mui/material'
+import Link from 'next/link'
 
 export const ProductCard = ({ title, slug, price, images }) => {
 
@@ -22,15 +24,19 @@ export const ProductCard = ({ title, slug, price, images }) => {
     >
 
       <Card>
-        <CardActionArea>
-          <CardMedia
-            className="fadeIn"
-            component='img'
-            image={productImage}
-            alt={title}
-          >
-          </CardMedia>
-        </CardActionArea>
+        <NextLink href="/product/slug" passHref prefetch={false}>
+          <Link>
+            <CardActionArea>
+              <CardMedia
+                className="fadeIn"
+                component='img'
+                image={productImage}
+                alt={title}
+              >
+              </CardMedia>
+            </CardActionArea>
+          </Link>
+        </NextLink>
       </Card>
 
       <Box sx={{ mt: 1 }} className="fadeIn">

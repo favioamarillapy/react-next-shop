@@ -36,7 +36,7 @@ export const ShopLayout = ({ children, title, description, image }) => {
         bottom: 0
       }}
       >
-        asda
+
       </footer>
     </>
   )
