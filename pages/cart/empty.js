@@ -4,7 +4,7 @@ import { ShopLayout } from '../../components/layouts'
 
 const CartEmpty = () => {
   return (
-    <ShopLayout>
+    <ShopLayout title={' Next shop -  Cart empty'} description={""}>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: { xs: 'column', sm: 'column' } }}>
 
         <RemoveShoppingCartOutlined sx={{ fontSize: 100, color: '#c2c2c2' }} />
