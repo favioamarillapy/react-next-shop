@@ -11,7 +11,7 @@ const productsInCart = [
   initialData.products[3]
 ]
 
-export const CartList = () => {
+export const CartList = ({ editable }) => {
   return (
     <>
       {
@@ -22,7 +22,7 @@ export const CartList = () => {
               <NextLink href='/product/slug'>
                 <Link>
                   <CardActionArea>
-                    <CardMedia image={'products/' + product.images[0]}
+                    <CardMedia image={'/products/' + product.images[0]}
                       component='img'
                       sx={{ borderRadius: '5px' }}
                     >
@@ -36,13 +36,17 @@ export const CartList = () => {
               <Box display='flex' flexDirection='column'>
                 <Typography variant='body1'> {product.title}</Typography>
                 <Typography variant='body1'> Talla: <strong></strong> </Typography>
-                <ProductCounter />
+                {editable && (
+                  <ProductCounter />
+                )}
               </Box>
             </Grid>
 
             <Grid item xs={2} display='flex' flexDirection='column' alignItems='center'>
               <Typography > $ {product.price}</Typography>
-              <Button variant='text' color='secondary'> Remove </Button>
+              {editable && (
+                <Button variant='text' color='secondary'> Remove </Button>
+              )}
             </Grid>
 
           </Grid>
