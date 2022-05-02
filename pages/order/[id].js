@@ -1,13 +1,28 @@
-import { Button, Card, CardContent, Divider, Grid, Link, Typography } from '@mui/material'
+import { Button, Card, CardContent, Chip, Divider, Grid, Link, Typography } from '@mui/material'
 import { CardOrder, CartList } from '../../components/cart'
 import { ShopLayout } from '../../components/layouts'
 import NextLink from 'next/link'
 import { Box } from '@mui/system'
+import { CreditCardOffOutlined, CreditScoreOutlined } from '@mui/icons-material'
 
-const ResumePage = () => {
+const OrderPage = () => {
   return (
-    <ShopLayout title={' Next shop -  Resume'} description={""}>
-      <Typography variant='h1' component='h1'> Cart </Typography>
+    <ShopLayout title={' Next shop -  Order: 1234567'} description={""}>
+      <Typography variant='h1' component='h1'> Order: 1234567 </Typography>
+
+      <Chip sx={{ my: 2 }}
+        label='Pending of payment'
+        variant='outlined'
+        color='error'
+        icon={<CreditCardOffOutlined />}
+      />
+
+      <Chip sx={{ my: 2 }}
+        label='Paid out'
+        variant='outlined'
+        color='success'
+        icon={<CreditScoreOutlined />}
+      />
 
       <Grid container>
 
@@ -67,4 +82,4 @@ const ResumePage = () => {
   )
 }
 
-export default ResumePage
+export default OrderPage
