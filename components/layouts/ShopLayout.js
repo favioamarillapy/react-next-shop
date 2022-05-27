@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Menu } from '../ui/Menu'
 import { Navbar } from '../ui/Navbar'
 
-export const ShopLayout = ({ children, title, description, image }) => {
+export const ShopLayout = ({ children, title, description, image, category }) => {
   return (
     <>
       <Head>

@@ -9,7 +9,7 @@ export const ProductCard = ({ title, slug, price, images }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
   const productImage = useMemo(() => {
-    return isHovered ? 'products/' + images[1] : 'products/' + images[0]
+    return isHovered ? '/products/' + images[1] : '/products/' + images[0]
   }, [isHovered, images])
 
 
