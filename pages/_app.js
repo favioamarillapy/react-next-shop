@@ -1,13 +1,23 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import { SWRConfig } from 'swr'
 import '../styles/globals.css'
 import { lightTheme } from '../themes'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <SWRConfig
+      value={{
+        fetcher: (resource, init) => fetch(resource, init).then(res => res.json())
+      }}
+    >
+
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+
+    </SWRConfig >
+
   )
 }
 

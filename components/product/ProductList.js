@@ -1,16 +1,28 @@
-import { Card, CardActionArea, CardMedia, Grid } from '@mui/material'
-import { initialData } from '../../database/products'
+import { Grid } from '@mui/material'
 import { ProductCard } from './ProductCard'
+import { LoadingFullScreen } from '../ui/LoadingFullScreen'
+import { useProduct } from '../../hooks/index'
 
 
 export const ProductList = () => {
+
+  const { response, isLoading, isError } = useProduct('products')
+
   return (
-    <Grid container spacing={4}>
+    <>
       {
-        initialData.products.map(product => (
-          <ProductCard key={product.slug} {...product} />
-        ))
+        !isLoading ? (
+          <Grid container spacing={4}>
+            {
+              response.data.map(product => (
+                <ProductCard key={product.slug} {...product} />
+              ))
+            }
+          </Grid>
+        ) : (
+          <LoadingFullScreen />
+        )
       }
-    </Grid>
+    </>
   )
 }
